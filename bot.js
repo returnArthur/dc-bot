@@ -318,7 +318,7 @@ client.once("ready", async () => {
   }, CHECK_INTERVAL_MS);
 
   // Daily reset at 12:00 AM
-  schedule.scheduleJob("0 0 * * *", async () => {
+  schedule.scheduleJob({rule:"0 0 * * *",tz: "Asia/Kathmandu"}, async () => {
     try {
       const goals = await getAllDailyGoals();
       for (const g of goals) {
